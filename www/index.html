@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+      <div ng-controller="cordovaDeviceMotionCtrl">
+        <h1 class="title">使用cordova设备方向和加速计</h1>
+        最高撸点<p ng-bind="indexmax"></p>
+        </div>
+      </ion-header-bar>
+      <ion-content ng-controller="cordovaDeviceOrientationCtrl">
+      <img ng-src="{{img.src}}" style="-webkit-transform:rotate({{img.rotate}}deg);">
+      </br>
+      <p>07130736</p>
+      <p>王耀文</p>
+      <p ng-if="!autoHeading"><button ng-click="getHeading()">手动获取</button></p>
+      <p ng-if="autoHeading" ><button ng-click="getHeading()">自动获取</button></p>
+      <label class="toggle" >
+        <input type="checkbox" ng-model="autoHeading">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+      </label>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
